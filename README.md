@@ -15,4 +15,3 @@ I will also create the backend and the backoffice of the application soon!
 - Insert right products
 - Show a confirmation alert when adding products to the cart
 - Fix colors
-- Save the context to the local storage otherwise the cart will be lost on page reload
