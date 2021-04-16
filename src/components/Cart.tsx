@@ -92,12 +92,10 @@ const ProductTable: React.FC = () => {
     return (
         <ContainerWithMargin>
             <TableContainer component={Paper}>
-                <Table>
+                <Table size="small">
                     <TableHead>
                         <TableRow>
                             <TableCell>Nome</TableCell>
-                            <TableCell align="right">Prezzo</TableCell>
-                            <TableCell align="right">Quantità</TableCell>
                             <TableCell align="right">Totale</TableCell>
                             <TableCell align="right">Azioni</TableCell>
                         </TableRow>
@@ -106,25 +104,21 @@ const ProductTable: React.FC = () => {
                         {data.map((product) => (
                             <TableRow key={product.name}>
                                 <TableCell component="th" scope="row">{product.name}</TableCell>
-                                <TableCell align="right">{product.price}€</TableCell>
-                                <TableCell align="right">{product.size}</TableCell>
-                                <TableCell align="right">{product.price * product.size}€</TableCell>
+                                <TableCell align="right">{product.price}€ x {product.size} = <strong>{product.price * product.size}€</strong></TableCell>
                                 <TableCell align="right">
                                     <Button
                                         variant="contained"
                                         color="secondary"
-                                        startIcon={<IndeterminateCheckBox/>}
                                         onClick={() => remove(product.name)}
                                     >
-                                        Decrementa
+                                        <IndeterminateCheckBox />
                                     </Button>
                                     <Button
                                         variant="contained"
                                         color="default"
-                                        startIcon={<AddBox/>}
                                         onClick={() => add(product)}
                                     >
-                                        Incrementa
+                                        <AddBox/>
                                     </Button>
                                 </TableCell>
                             </TableRow>
@@ -132,8 +126,6 @@ const ProductTable: React.FC = () => {
                     </TableBody>
                     <TableFooter>
                         <TableRow>
-                            <TableCell/>
-                            <TableCell/>
                             <TableCell/>
                             <TableCell align="right">{getTotalUsing(cart.state)}€</TableCell>
                             <TableCell/>
